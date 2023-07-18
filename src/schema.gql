@@ -2,8 +2,28 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Handbook {
+  author: String!
+  body: String!
+  title: String!
+}
+
+input HandbookInput {
+  author: String!
+  body: String!
+  title: String!
+}
+
+type Mutation {
+  createBook(input: HandbookInput!): Handbook!
+  deleteBook(id: ID!): Handbook!
+  updateBook(id: ID!, input: HandbookInput!): Handbook!
+}
+
 type Query {
   """Returna un holiwis"""
   Holiwis: String!
+  handbook(id: ID!): Handbook!
+  handbooks: [Handbook!]!
   randomNumber(to: Int): Int!
 }
