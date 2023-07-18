@@ -1,0 +1,9 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  """Returna un holiwis"""
+  Holiwis: String!
+  randomNumber(to: Int): Int!
+}
