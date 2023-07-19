@@ -7,12 +7,16 @@ export type HandbookDocument = Handbook & Document;
 @ObjectType()
 @Schema()
 export class Handbook {
+
+    @Prop()
     @Field()
     title: String;
 
+    @Prop()
     @Field()
     author: String;
 
+    @Prop()
     @Field()
     body: String;
 }
