@@ -3,10 +3,19 @@ import { Resolver, Query, Mutation, Args, ID } from '@nestjs/graphql';
 import { Handbook } from './handbook.model';
 import { HandbookService } from './handbooks.service';
 import { HandbookInput } from './handbook.input';
+import { generatePDF } from './util/pdfMaker';
+import { uploadPdf } from './util/pdfUploader';
 
 @Resolver(() => Handbook)
 export class HandbookResolver {
     constructor(private readonly handbookService: HandbookService) { }
+
+    @Query(() => String)
+    async pdf(@Args('id', { type: () => ID }) id: string): Promise<string> {
+        const data = await this.handbookService.findOne(id);
+        const pdf = await generatePDF(data);
+        return uploadPdf(pdf, id);
+    }
 
     @Query(() => [Handbook])
     async handbooks(): Promise<Handbook[]> {
@@ -15,9 +24,7 @@ export class HandbookResolver {
 
     @Query(() => Handbook)
     async handbook(@Args('id', { type: () => ID }) id: String): Promise<Handbook> {
-        const jeje = await this.handbookService.findOne(id)
-        console.log(jeje)
-        return jeje;
+        return this.handbookService.findOne(id);
     }
 
     @Mutation(() => Handbook)

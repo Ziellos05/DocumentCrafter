@@ -7,7 +7,7 @@ import { Handbook, HandbookSchema } from './handbook.model';
 @Module({
     providers: [
         HandbookService,
-        HandbookResolver
+        HandbookResolver,
     ],
     imports: [MongooseModule.forFeature([
         {

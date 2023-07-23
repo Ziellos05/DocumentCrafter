@@ -25,5 +25,6 @@ type Query {
   Holiwis: String!
   handbook(id: ID!): Handbook!
   handbooks: [Handbook!]!
+  pdf(id: ID!): String!
   randomNumber(to: Int): Int!
 }

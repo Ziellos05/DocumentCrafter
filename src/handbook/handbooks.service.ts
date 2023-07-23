@@ -13,6 +13,7 @@ export class HandbookService {
     }
 
     async findOne(id: String): Promise<Handbook> {
+        const aja = await this.handbookModel.findById(id)
         return this.handbookModel.findById(id).exec();
     }
 
