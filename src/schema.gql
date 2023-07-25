@@ -3,14 +3,18 @@
 # ------------------------------------------------------
 
 type Handbook {
+  _id: String!
   author: String!
   body: String!
+  date: String!
   title: String!
 }
 
 input HandbookInput {
+  _id: String!
   author: String!
   body: String!
+  date: String!
   title: String!
 }
 

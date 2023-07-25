@@ -19,6 +19,14 @@ export class Handbook {
     @Prop()
     @Field()
     body: String;
+
+    @Prop()
+    @Field()
+    date: String;
+
+    @Prop()
+    @Field()
+    _id: String;
 }
 
 export const HandbookSchema = SchemaFactory.createForClass(Handbook);

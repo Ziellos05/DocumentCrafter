@@ -11,4 +11,10 @@ export class HandbookInput {
 
     @Field()
     body: String
+
+    @Field()
+    date: String
+    
+    @Field()
+    _id: String
 }
