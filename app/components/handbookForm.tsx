@@ -1,6 +1,8 @@
 "use client"
 
 import { useRouter } from 'next/navigation';
+import { createHandbookMutation } from '../api/handbook/handbookQueries';
+import { useEffect } from 'react';
 
 // Componente que presenta el form a través del cual se puede registrar una nueva URL
 export default function HandbookForm() {
@@ -9,15 +11,8 @@ export default function HandbookForm() {
 
   // Acá se configura la data y se hace el request a la API
   const handleSubmit = (event: any) => {
+
     event.preventDefault();
-
-    const url = "http://localhost:8080/graphql";
-
-    const CREATE_PDF = `mutation CreateBook($input: HandbookInput!) {
-      createBook(input: $input) {
-        _id
-      }
-    }`;  
 
     const date = new Date().toLocaleDateString();
 
@@ -27,30 +22,19 @@ export default function HandbookForm() {
       body: event.target.body.value,
       date: date
     }
-      fetch(url, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              query: CREATE_PDF,
-              variables: {
-                input: input
-              }
-          })
+    createHandbookMutation(input)
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          alert("Document created successfully, check the main page")
+          router.push('/main');
+        }
+        else {
+          alert("ERROR :C")
+        }
       })
-          .then(response => response.json())
-          .then(data => {
-              if (data) {
-                  alert("Document created successfully, check the main page")
-                  router.push('/main');
-              }
-              else {
-                  alert("ERROR :C")
-              }
-          })
-
   }
+
   return (
 
     <div>

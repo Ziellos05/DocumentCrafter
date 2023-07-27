@@ -1,7 +1,6 @@
-import { GoogleSingInButton } from './components/authButton'
-import { getServerSession } from 'next-auth'
-import { authConfig, isLogged } from './api/auth/auth'
-import constructora from '../public/logo-constructora-bolivar.svg'
+import { GoogleSingInButton } from '../components/authButton'
+import { isLogged } from '../api/auth/auth'
+import constructora from '../../public/logo-constructora-bolivar.svg'
 import Image from 'next/image';
 
 // Página principal cuando el usuario no está logueado
