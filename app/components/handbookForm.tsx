@@ -18,10 +18,19 @@ export default function HandbookForm() {
 
     const input = {
       author: event.target.author.value,
-      title: event.target.title.value,
-      body: event.target.body.value,
-      date: date
+      date: date,
+      password: event.target.password.value,
+      firstPage: event.target.firstPage.checked,
+      title2: event.target.title2.value,
+      edit1: event.target.edit1.value,
+      urlLink1: event.target.urlLink1.value,
+      title3: event.target.title3.value,
+      edit2: event.target.edit2.value,
+      image2: event.target.image2.value,
+      chosen1: event.target.chosen1.value,
+      chosenAlign1: event.target.chosenAlign1.value
     }
+
     createHandbookMutation(input)
       .then(response => response.json())
       .then(data => {
