@@ -17,6 +17,7 @@ export default function HandbookForm() {
     const date = new Date().toLocaleDateString();
 
     const input = {
+      font: event.target.font.value,
       author: event.target.author.value,
       date: date,
       password: event.target.password.value,
@@ -50,6 +51,13 @@ export default function HandbookForm() {
       <form onSubmit={handleSubmit}>
         <div className="grid gap-4 mb-4 md:grid-cols-1">
           <div>
+            <label htmlFor="font" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Font</label>
+            <select id="font" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option>Helvetica</option>
+              <option>Courier</option>
+            </select>
+          </div>
+          <div>
             <label htmlFor="author" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Author</label>
             <input type="text" id="author" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="ABC12..." required={true} pattern={"/^[\w\-\s]+$/"} />
           </div>
@@ -77,14 +85,14 @@ export default function HandbookForm() {
             <label htmlFor="edit2" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Edit 2</label>
             <input type="text" id="edit2" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="ABC12..." required={true} pattern={"/^[\w\-\s]+$/"} />
           </div>
-          <div className="flex items-start mb-6">
+          <div>
             <label htmlFor="image2" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image 2</label>
             <select id="image2" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               <option>Bolivar</option>
               <option>Evil Bolivar</option>
             </select>
           </div>
-          <div className="flex items-start mb-6">
+          <div>
             <label htmlFor="chosen1" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Chosen 1</label>
             <select id="chosen1" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               <option>Latin</option>
