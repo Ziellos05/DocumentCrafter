@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { resolve } from 'path';
 const PDFDocument = require('pdfkit-table');
+import * as fs from 'fs';
 
 
 @Injectable()
@@ -31,6 +32,10 @@ export class AppService {
 
 
       })
+
+      fs.writeFile("public/pdf.pdf", pdfBuffer, function (err) {
+        if (err) throw err;
+        console.log('File is created successfully.')} )
 
       return pdfBuffer;
     

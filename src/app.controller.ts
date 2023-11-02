@@ -1,12 +1,6 @@
-import { Controller, Get, Post, UseInterceptors, UploadedFiles, Body, Param, Res } from '@nestjs/common';
-import { AnyFilesInterceptor } from '@nestjs/platform-express';
+import { Controller, Get, Res } from '@nestjs/common';
 import { AppService } from './app.service';
-import { diskStorage } from 'multer';
 import path = require('path');
-import { Observable, of } from 'rxjs';
-import { join } from 'path';
-import * as dotenv from 'dotenv';
-import * as fs from 'fs';
 
 @Controller()
 export class AppController {
