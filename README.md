@@ -25,6 +25,6 @@ This app is an experiment, the idea is create a whole handbook selecting some op
 
    https://github.com/Ziellos05/DocumentCrafter/tree/pdfCreator-backend
 
-4. pdfUploader-backend: This shit have been a headache but is great, this allows sending the created file to your own folder in Google Drive
+4. pdfUploader-backend: This shit have been a headache but is great, this allows sending the created file to your own folder in Google Drive.
 
    https://github.com/Ziellos05/DocumentCrafter/tree/pdfUploader-frontend
